@@ -10,15 +10,12 @@ let savedOtp = null;
 
 // EMAIL CONFIG (NEW - Render friendly)
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",   // Gmail SMTP server
-  port: 587,                // TLS port
-  secure: false,            // false for 587
+  host: "smtp-relay.brevo.com",
+  port: 587,
+  secure: false,
   auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false
+    user: process.env.BREVO_SMTP_USER,
+    pass: process.env.BREVO_SMTP_PASS,
   }
 });
 
