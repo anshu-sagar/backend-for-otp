@@ -8,14 +8,20 @@ app.use(express.json());
 // TEMP storage (learning purpose)
 let savedOtp = null;
 
-// EMAIL CONFIG
+// EMAIL CONFIG (NEW - Render friendly)
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",   // Gmail SMTP server
+  port: 587,                // TLS port
+  secure: false,            // false for 587
   auth: {
     user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS
+    pass: process.env.GMAIL_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false
   }
 });
+
 
 // STEP 1: REQUEST OTP
 app.post("/request-otp", async (req, res) => {
