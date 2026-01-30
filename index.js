@@ -36,7 +36,7 @@ savedOtp = otp;
 
   try {
     await transporter.sendMail({
-      from: `OTP Login <${process.env.GMAIL_USER}>`,
+      from: `OTP Login <${process.env.FROM_EMAIL}>`,
       to: email,
       subject: "Your Login OTP",
       text: `Your OTP is: ${otp}\nValid for 5 minutes.`
