@@ -26,9 +26,10 @@ app.post("/request-otp", async (req, res) => {
   }
 
   const otp = Math.floor(100000 + Math.random() * 900000);
-  savedOtp = otp;
+savedOtp = otp;
 
-  console.log("OTP:", otp);
+// ❌ console.log("OTP:", otp);  // REMOVE THIS
+  
 
   try {
     await transporter.sendMail({
